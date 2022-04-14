@@ -1,0 +1,263 @@
+/***    General     ***/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0 auto;
+  background-color: whitesmoke;
+}
+
+.m-5-auto {
+  margin: 5rem auto;
+}
+
+/***    Landing Page     ***/
+.main-title,
+.main-para {
+  color: #f1f1f1;
+}
+
+.main-title {
+  padding-top: 10rem;
+  font-size: 5rem;
+  font-family: "Fascinate", cursive;
+  text-transform: uppercase;
+}
+
+.main-para {
+  font-size: 2.5rem;
+  text-transform: capitalize;
+}
+
+#reg_btn span {
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#reg_btn span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#reg_btn:hover span {
+  padding-right: 25px;
+}
+
+#reg_btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/***    Login Page     ***/
+h2 {
+  font-weight: 300;
+}
+
+form {
+  display: inline-block;
+  background: #f3f3f3;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 2rem;
+  margin: 2rem 0 1rem 0;
+}
+
+form label {
+  float: left;
+  font-size: 0.9rem;
+  margin: 0;
+  padding: 0;
+}
+
+.right-label {
+  float: right;
+  cursor: pointer;
+}
+
+input {
+  width: 15rem;
+  padding: 0.3rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+
+#sub_btn {
+  display: block;
+  width: 100%;
+  padding: 0.3rem;
+  border: none;
+  background: #1c1cf0;
+  color: whitesmoke;
+  border-radius: 3px;
+  filter: drop-shadow(0px 0px 5px blue);
+}
+
+#sub_btn:hover {
+  background: ligthblue;
+  transition: all 0.5s;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/***    Register Page     ***/
+#checkbox {
+  width: 1rem;
+}
+
+form span {
+  font-size: 0.8rem;
+}
+
+#reset_pass_lbl {
+  float: left;
+}
+
+/***    Home Page     ***/
+.home-page-title {
+  color: #222;
+}
+
+@media (max-width: 768px) {
+  .landing-image {
+    height: auto;
+    width: auto;
+    max-width: 70%;
+    margin-left: 15vw;
+    padding: 10vh 5vw 5vh 5vw;
+    filter: drop-shadow(0px 0px 5px blue);
+  }
+
+  .primary-button {
+    padding: 5%;
+    margin: 10%;
+    background: #1c1cf0;
+    opacity: 0.9;
+    border: none;
+    color: whitesmoke;
+    font-size: 1.2rem;
+    transition: all 0.5s;
+    cursor: pointer;
+    text-transform: capitalize;
+    filter: drop-shadow(0px 0px 5px blue);
+  }
+
+  .main-title,
+  .main-para {
+    color: #f1f1f1;
+  }
+
+  .main-title {
+    padding-top: 10rem;
+    font-size: 5rem;
+    font-family: "Fascinate", cursive;
+    text-transform: uppercase;
+  }
+
+  .main-para {
+    font-size: 2.5rem;
+    text-transform: capitalize;
+  }
+
+  #reg_btn span {
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  #reg_btn span:after {
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  #reg_btn:hover span {
+    padding-right: 25px;
+  }
+
+  #reg_btn:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .primary-button {
+    margin-top: 5rem;
+    margin-right: 1rem;
+    padding: 0.6rem;
+    width: 10rem;
+    background: #1c1cf0;
+    opacity: 0.9;
+    border: none;
+    color: whitesmoke;
+    font-size: 1.2rem;
+    transition: all 0.5s;
+    cursor: pointer;
+    text-transform: capitalize;
+    filter: drop-shadow(0px 0px 5px blue);
+  }
+
+  .landing-image {
+    padding-top: 5rem;
+    padding-left: 29vw;
+    filter: drop-shadow(0px 0px 5px blue);
+    /* padding-right: 20vw; */
+  }
+
+  .main-title,
+  .main-para {
+    color: #f1f1f1;
+  }
+
+  .main-title {
+    padding-top: 10rem;
+    font-size: 5rem;
+    font-family: "Fascinate", cursive;
+    text-transform: uppercase;
+  }
+
+  .main-para {
+    font-size: 2.5rem;
+    text-transform: capitalize;
+  }
+
+  #reg_btn span {
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  #reg_btn span:after {
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  #reg_btn:hover span {
+    padding-right: 25px;
+  }
+
+  #reg_btn:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+}
