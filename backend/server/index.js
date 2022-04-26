@@ -11,22 +11,12 @@ app.use(express.static('frontend/public'));
 
 
 
-app.get('/test', async (req, res) => {
-
-	res.send('response to get request!')
-
-	// db.query(
-	// 	'SELECT * FROM homes',
-	// 	(error, results) => {
-	// 		if (error) {
-	// 			console.log(error);
-	// 		}
-	// 		else {
-	// 			res.send(results);
-	// 		}
-
-	// 	}
-	// );
+app.get('/login', async (req, res) => {
+	app.use('/login', (req, res) => {
+		res.send({
+		  token: 'test123'
+		});
+	  });
 });
 
 // app.post('/sfHomes/homes', async (req, res) => {
