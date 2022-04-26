@@ -26,9 +26,9 @@ const Signup = () => {
 
   return (
     <>
-      <div className="p-4 box shadow">
+      <div className="p-4 box">
 	 	<div className='image-container layrd'>
-          <img src={HeaderImage} alt="logo" className="header-image shadow"></img>
+          <img src={HeaderImage} alt="logo" className="header-image"></img>
         </div>
         {error && <Alert variant="danger">{error}</Alert>}
         <Form onSubmit={handleSubmit}>
@@ -49,13 +49,13 @@ const Signup = () => {
           </Form.Group>
 
           <div className="d-grid gap-2">
-            <Button variant="custom" type="Submit" className='shadow custom-submit'>
+            <Button variant="custom" type="Submit" className='custom-submit'>
               Sign up
             </Button>
           </div>
         </Form>
       </div>
-      <div className="p-4 box mt-3 text-center shadow">
+      <div className="p-4 box mt-3 text-center">
         Already have an account? <Link to="/">Log In</Link>
       </div>
     </>
