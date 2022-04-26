@@ -37,9 +37,9 @@ const Login = () => {
 
   return (
     <>
-      <div className="p-4 box shadow">
+      <div className="p-4 box">
         <div className='image-container layrd'>
-          <img src={HeaderImage} alt="logo" className="header-image shadow"></img>
+          <img src={HeaderImage} alt="logo" className="header-image"></img>
         </div>
         {error && <Alert variant="danger">{error}</Alert>}
         <Form onSubmit={handleSubmit}>
@@ -60,7 +60,7 @@ const Login = () => {
           </Form.Group>
 
           <div className="d-grid gap-2">
-            <Button variant="custom" type="Submit" className='shadow custom-submit'>
+            <Button variant="custom" type="Submit" className='custom-submit'>
               Log In
             </Button>
           </div>
@@ -68,13 +68,13 @@ const Login = () => {
         <hr />
         <div>
           <GoogleButton
-            className="g-btn shadow"
+            className="g-btn"
             type="dark"
             onClick={handleGoogleSignIn}
           />
         </div>
       </div>
-      <div className="p-4 box mt-3 text-center shadow">
+      <div className="p-4 box mt-3 text-center">
         Don't have an account? <Link to="/signup">Sign up</Link>
       </div>
     </>
