@@ -8,12 +8,20 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
 const App = () => {
+
+  useEffect(() => {
+    window.process = {
+      ...window.process,
+    };
+  }, []);
+
   return (
     <Container style={{ width: "400px" }}>
       <Row>

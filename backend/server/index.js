@@ -7,7 +7,7 @@ const cors = require('cors')
 app.use(cors())
 app.use(express.urlencoded({ limit: '500mb', extended: true, parameterLimit: 50000 }));
 app.use(express.json({ limit: '500mb' }))
-app.use(express.static('frontend/public'));
+app.use(express.static('../frontend/public'));
 
 
 

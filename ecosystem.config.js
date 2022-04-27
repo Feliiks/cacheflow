@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'react_scaffold',
+      name: 'cacheflow',
       cwd: './backend/server',
       script: 'npm',
       args: 'start',

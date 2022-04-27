@@ -1,0 +1,33 @@
+{
+	"name": "backend",
+	"version": "1.0.0",
+	"description": "backend",
+	"main": "server/index.js",
+	"scripts": {
+	  "test": "mocha",
+	  "start": "node server/index.js",
+	  "server:dev": "nodemon server/index.js"
+	},
+	"repository": {
+	  "type": "git",
+	  "url": "git+https://gitlab.com/RomanEmmons/react_scaffold.git"
+	},
+	"author": "Roman Emmons",
+	"license": "ISC",
+	"bugs": {
+	  "url": "https://gitlab.com/RomanEmmons/react_scaffold.git/issues"
+	},
+	"homepage": "https://gitlab.com/RomanEmmons/react_scaffold.git#readme",
+	"dependencies": {
+	  "dotenv": "^10.0.0",
+	  "mysql": "^2.18.1"
+	},
+	"devDependencies": {
+	  "chai": "^4.3.4",
+	  "chai-http": "^4.3.0",
+	  "cors": "^2.8.5",
+	  "express": "^4.17.3",
+	  "mocha": "^9.1.3",
+	  "process": "^0.11.10"
+	}
+  }

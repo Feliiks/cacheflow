@@ -11,7 +11,10 @@ module.exports = {
             '@babel/preset-env'
           ],
           "plugins": [
-            ["@babel/transform-runtime"]
+            ["@babel/transform-runtime"],
+            // new webpack.DefinePlugin({
+            //   'process.env.NODE_ENV': JSON.stringify(isDevelopment ? 'development' : 'production'),
+            // }),
         ]
         },
         exclude: /node_modules/,
@@ -37,4 +40,19 @@ module.exports = {
     filename: 'bundle.js',
     path: __dirname + '/frontend/public',
   },
+  resolve: {
+    fallback: {
+      "fs": false,
+      "os": false,
+      "path": false
+    },
+    alias: {
+      process: "process/browser"
+    }
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  }
 };
