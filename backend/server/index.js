@@ -1,23 +1,17 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const db = require('../database/index.js');
 const port = 3000;
-const cors = require('cors')
+const cors = require("cors");
+const router = require("./routes");
 
-app.use(cors())
-app.use(express.urlencoded({ limit: '500mb', extended: true, parameterLimit: 50000 }));
-app.use(express.json({ limit: '500mb' }))
-app.use(express.static('../frontend/public'));
+app.use(cors());
+app.use(
+  express.urlencoded({ limit: "500mb", extended: true, parameterLimit: 50000 })
+);
+app.use(express.json({ limit: "500mb" }));
+app.use(express.static("../frontend/public"));
 
-
-
-app.get('/login', async (req, res) => {
-	app.use('/login', (req, res) => {
-		res.send({
-		  token: 'test123'
-		});
-	  });
-});
+app.use("/platform", router);
 
 // app.post('/sfHomes/homes', async (req, res) => {
 
@@ -78,4 +72,6 @@ app.get('/login', async (req, res) => {
 // 	);
 // });
 
-module.exports = app.listen(port, () => console.log(`listening on port ${port}!`));
+module.exports = app.listen(port, () =>
+  console.log(`listening on port ${port}!`)
+);

@@ -14,7 +14,7 @@ User.init({
   name: {
     type: DataTypes.STRING
   },
-  token: {
+  uid: {
     type: DataTypes.STRING,
     allowNull: false
   }
