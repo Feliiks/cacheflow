@@ -19,7 +19,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const url = `http://localhost:3000/platform/userCompanies/${user.uid}`;
+    const url = `http://localhost:3000/platform/userCompaniesModels/${user.uid}`;
 
     const fetchData = async () => {
       try {
