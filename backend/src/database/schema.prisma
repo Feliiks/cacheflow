@@ -8,9 +8,62 @@ datasource db {
 }
 
 model company {
-  id Int @id @default(autoincrement())
+  cacheflow_id         Int            @id @default(autoincrement())
+  company_name         String?        @db.VarChar(255)
+  database_name        String         @unique(map: "database_name_UNIQUE") @db.VarChar(255)
+  domain               String         @db.VarChar(255)
+  cacheflow_created_at DateTime       @db.DateTime(0)
+  cacheflow_updated_at DateTime       @db.DateTime(0)
+  model                model?
+  user_company         user_company[]
 }
 
 model user {
-  id Int @id @default(autoincrement())
+  cacheflow_id         Int            @id @default(autoincrement())
+  email                String?        @unique(map: "email") @db.VarChar(255)
+  uid                  String         @db.VarChar(255)
+  first_name           String?        @db.VarChar(255)
+  last_name            String?        @db.VarChar(255)
+  cacheflow_created_at DateTime       @unique(map: "cacheflow_created_at_UNIQUE") @db.DateTime(0)
+  cacheflow_updated_at DateTime       @db.DateTime(0)
+  user_company         user_company[]
+
+  @@index([uid], map: "uid")
+}
+
+model model {
+  cacheflow_id          Int      @id @default(autoincrement())
+  name                  String   @db.VarChar(255)
+  ui_name               String?  @db.VarChar(45)
+  upload                Int?     @db.TinyInt
+  crud                  Int?     @db.TinyInt
+  read                  Int      @db.TinyInt
+  write                 Int      @db.TinyInt
+  company_cacheflow_id  Int
+  cacheflow_creaated_at DateTime @db.DateTime(0)
+  cacheflow_updated_at  DateTime @db.DateTime(0)
+  company               company  @relation(fields: [cacheflow_id], references: [cacheflow_id], onDelete: Cascade, map: "company_cacheflow_id")
+}
+
+model user_company {
+  cacheflow_id         Int      @id @default(autoincrement())
+  user_uid             String?  @db.VarChar(255)
+  company_cacheflow_id Int?
+  cacheflow_created_at DateTime @db.DateTime(0)
+  cacheflow_updated_at DateTime @db.DateTime(0)
+  company              company? @relation(fields: [company_cacheflow_id], references: [cacheflow_id], onDelete: Restrict, onUpdate: Restrict, map: "user_company_ibfk_2")
+  user                 user?    @relation(fields: [user_uid], references: [uid], onDelete: Restrict, onUpdate: Restrict, map: "user_company_ibfk_3")
+
+  @@index([company_cacheflow_id], map: "company_cacheflow_id")
+  @@index([user_uid], map: "user_uid")
+}
+
+model user_model {
+  cacheflow_id         Int      @id @default(autoincrement())
+  user_cacheflow_id    Int
+  model_cacheflow_id   Int
+  read                 Int      @db.TinyInt
+  write                Int      @db.TinyInt
+  cacheflow_created_at DateTime @db.DateTime(0)
+  cacheflow_updated_at DateTime @db.DateTime(0)
 }

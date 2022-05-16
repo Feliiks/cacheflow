@@ -45,7 +45,14 @@ mainRouter.get("/userCompaniesModels/:userUid", async (req, res) => {
 			u.uid = '${userUid}'
 	`;
 
-  res.send("hiiiii !")
+  // prisma connexion test
+  const user = await prisma.user.findMany({
+    where: {
+      cacheflow_id: 1
+    }
+  })
+
+  res.send(user[0].email)
 })
 
 export default mainRouter

@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
+const database_1 = require("../../database");
 // const HeadlessChromeScraper = require("../../services/puppeteer");
 const mainRouter = (0, express_1.Router)();
 mainRouter.get("/userCompaniesModels/:userUid", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -51,6 +52,12 @@ mainRouter.get("/userCompaniesModels/:userUid", (req, res) => __awaiter(void 0, 
 		WHERE
 			u.uid = '${userUid}'
 	`;
-    res.send("hiiiii !");
+    // prisma connexion test
+    const user = yield database_1.prisma.user.findMany({
+        where: {
+            cacheflow_id: 1
+        }
+    });
+    res.send(user[0].email);
 }));
 exports.default = mainRouter;
