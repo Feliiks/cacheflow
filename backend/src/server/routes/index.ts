@@ -1,8 +1,10 @@
-const router = require("express").Router();
-const db = require("../../database/index.js");
+import { Router } from "express"
+import { prisma } from "../../database"
 // const HeadlessChromeScraper = require("../../services/puppeteer");
 
-router.route("/userCompaniesModels/:userUid").get(async (req, res) => {
+const mainRouter: Router = Router()
+
+mainRouter.get("/userCompaniesModels/:userUid", async (req, res) => {
   const userUid = req.params.userUid.toString();
 
   const query = `
@@ -43,13 +45,7 @@ router.route("/userCompaniesModels/:userUid").get(async (req, res) => {
 			u.uid = '${userUid}'
 	`;
 
-  db.query(query, (error, results) => {
-    if (error) {
-      console.log(error);
-    } else {
-      res.send(results);
-    }
-  });
-});
+  res.send("hiiiii !")
+})
 
-module.exports = router;
+export default mainRouter
