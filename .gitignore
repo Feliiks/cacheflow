@@ -5,3 +5,4 @@ backend/.env
 
 frontend/public/bundle.js
 frontend/src/firebase.js
+node_modules
