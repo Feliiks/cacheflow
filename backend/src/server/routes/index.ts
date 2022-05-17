@@ -1,6 +1,5 @@
 import { Router } from "express"
 import { prisma } from "../../database"
-// const HeadlessChromeScraper = require("../../services/puppeteer");
 
 const mainRouter: Router = Router()
 

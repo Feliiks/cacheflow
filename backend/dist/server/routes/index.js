@@ -11,7 +11,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const database_1 = require("../../database");
-// const HeadlessChromeScraper = require("../../services/puppeteer");
 const mainRouter = (0, express_1.Router)();
 mainRouter.get("/userCompaniesModels/:userUid", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const userUid = req.params.userUid.toString();
