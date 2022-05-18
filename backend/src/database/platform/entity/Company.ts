@@ -30,9 +30,9 @@ export class Company {
   @Column({type: "date"})
   cacheflow_updated_at: string;
 
-  @OneToOne(type => Model, Model => Model.company)
+  @OneToOne(type => Model, model => model.company)
   model: Model;
 
-  @OneToMany(type => User_company, User_company => User_company.company)
+  @OneToMany(type => User_company, user_company => user_company.company)
   user_company: User_company[];
 }
