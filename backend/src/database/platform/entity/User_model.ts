@@ -16,11 +16,11 @@ export class User_model {
   @PrimaryGeneratedColumn('increment')
   cacheflow_id: number;
 
-  @ManyToOne(type => Model, Model => Model.user_model)
+  @ManyToOne(type => Model, model => model.user_model, { eager: true })
   @JoinColumn({ name: "model_cacheflow_id" })
   model: Model;
 
-  @ManyToOne(type => User, User => User.user_model)
+  @ManyToOne(type => User, user => user.user_model, { eager: true })
   @JoinColumn({ name: "user_cacheflow_id" })
   user: User;
 

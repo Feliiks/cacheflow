@@ -20,12 +20,12 @@ __decorate([
     __metadata("design:type", Number)
 ], User_company.prototype, "cacheflow_id", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(type => Company_1.Company, Company => Company.user_company),
+    (0, typeorm_1.ManyToOne)(() => Company_1.Company, company => company.user_company, { eager: true }),
     (0, typeorm_1.JoinColumn)({ name: "company_cacheflow_id" }),
     __metadata("design:type", Company_1.Company)
 ], User_company.prototype, "company", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(type => User_1.User, User => User.user_company),
+    (0, typeorm_1.ManyToOne)(() => User_1.User, user => user.user_company, { eager: true }),
     (0, typeorm_1.JoinColumn)({ name: "user_cacheflow_id" }),
     __metadata("design:type", User_1.User)
 ], User_company.prototype, "user", void 0);

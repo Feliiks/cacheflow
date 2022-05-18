@@ -38,10 +38,10 @@ export class Model {
   @Column({type: "date"})
   cacheflow_updated_at: string;
 
-  @OneToOne(type => Company, Company => Company.model)
+  @OneToOne(type => Company, company => company.model)
   @JoinColumn({ name: "company_cacheflow_id" })
   company: Company;
 
-  @OneToMany(type => User_model, User_model => User_model.model)
+  @OneToMany(type => User_model, user_model => user_model.model)
   user_model: User_model[];
 }

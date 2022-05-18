@@ -52,12 +52,12 @@ __decorate([
     __metadata("design:type", String)
 ], Model.prototype, "cacheflow_updated_at", void 0);
 __decorate([
-    (0, typeorm_1.OneToOne)(type => Company_1.Company, Company => Company.model),
+    (0, typeorm_1.OneToOne)(type => Company_1.Company, company => company.model),
     (0, typeorm_1.JoinColumn)({ name: "company_cacheflow_id" }),
     __metadata("design:type", Company_1.Company)
 ], Model.prototype, "company", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(type => User_model_1.User_model, User_model => User_model.model),
+    (0, typeorm_1.OneToMany)(type => User_model_1.User_model, user_model => user_model.model),
     __metadata("design:type", Array)
 ], Model.prototype, "user_model", void 0);
 Model = __decorate([

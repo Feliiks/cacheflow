@@ -14,11 +14,11 @@ export class User_company {
   @PrimaryGeneratedColumn('increment')
   cacheflow_id: number;
 
-  @ManyToOne(type => Company, Company => Company.user_company)
+  @ManyToOne(() => Company, company => company.user_company, { eager: true })
   @JoinColumn({ name: "company_cacheflow_id" })
   company: Company;
 
-  @ManyToOne(type => User, User => User.user_company)
+  @ManyToOne(() => User, user => user.user_company, { eager: true })
   @JoinColumn({ name: "user_cacheflow_id" })
   user: User;
 

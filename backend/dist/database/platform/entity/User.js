@@ -44,11 +44,11 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "cacheflow_updated_at", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(type => User_company_1.User_company, User_company => User_company.user),
+    (0, typeorm_1.OneToMany)(type => User_company_1.User_company, user_company => user_company.user),
     __metadata("design:type", Array)
 ], User.prototype, "user_company", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(type => User_model_1.User_model, User_model => User_model.user),
+    (0, typeorm_1.OneToMany)(type => User_model_1.User_model, user_model => user_model.user),
     __metadata("design:type", Array)
 ], User.prototype, "user_model", void 0);
 User = __decorate([
