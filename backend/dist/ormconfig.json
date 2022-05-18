@@ -1,0 +1,24 @@
+{
+    "platform_datasource": {
+        "type": "mysql",
+        "host": "cacheflow-db-cluster-dev.cluster-c37w0dj5gpef.us-east-1.rds.amazonaws.com",
+        "port": 3306,
+        "username": "clusteradmin",
+        "password": "O0zf8.1a3AU.wWOWpE_wfp5TowtJ=Y",
+        "database": "platform",
+        "synchronize": true,
+        "logging": false,
+        "entities": [
+            "src/database/platform/entity/**/*.ts"
+        ],
+        "migrations": ["src/database/platform/migrations/**/*.ts"
+        ],
+        "subscribers": ["src/database/platform/subscribers/**/*.ts"
+        ],
+        "cli": {
+            "entitiesDir": "src/database/platform/entity",
+            "migrationsDir": "src/database/platform/migrations",
+            "subscribersDir": "src/database/platform/subscribers"
+        }
+    }
+}
