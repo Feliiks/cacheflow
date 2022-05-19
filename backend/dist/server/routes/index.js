@@ -15,7 +15,7 @@ const User_1 = require("../../database/platform/entity/User");
 const mainRouter = (0, express_1.Router)();
 mainRouter.get("/userCompaniesModels/:userUid", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const userUid = req.params.userUid.toString();
-    const userRepository = db_1.platform_datasource.getRepository(User_1.User);
+    const userRepository = db_1.dbs.platform_datasource.getRepository(User_1.User);
     try {
         let user = yield userRepository.find({
             where: {
@@ -26,7 +26,9 @@ mainRouter.get("/userCompaniesModels/:userUid", (req, res) => __awaiter(void 0, 
                 user_model: true
             }
         });
-        res.send(user);
+        if (!user[0])
+            throw new Error;
+        res.status(200).send(user);
     }
     catch (err) {
         console.log(err);

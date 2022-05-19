@@ -1,6 +1,6 @@
 import { Router } from "express"
 
-import { platform_datasource, company_ddb_datasource } from "../../database/db";
+import { dbs } from "../../database/db";
 import { User } from "../../database/platform/entity/User";
 
 const mainRouter: Router = Router()
@@ -8,7 +8,7 @@ const mainRouter: Router = Router()
 mainRouter.get("/userCompaniesModels/:userUid", async (req, res) => {
   const userUid = req.params.userUid.toString();
 
-  const userRepository = platform_datasource.getRepository(User)
+  const userRepository = dbs.platform_datasource.getRepository(User)
 
   try {
     let user = await userRepository.find({
@@ -21,7 +21,9 @@ mainRouter.get("/userCompaniesModels/:userUid", async (req, res) => {
       }
     })
 
-    res.send(user)
+    if (!user[0]) throw new Error
+
+    res.status(200).send(user)
   } catch (err) {
     console.log(err)
     res.sendStatus(400)

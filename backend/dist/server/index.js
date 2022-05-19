@@ -22,8 +22,10 @@ const app = (0, express_1.default)();
 (function () {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            yield db_1.platform_datasource.initialize();
-            yield db_1.company_ddb_datasource.initialize();
+            for (const i of Object.keys(db_1.dbs)) {
+                // @ts-ignore
+                yield db_1.dbs[i].initialize();
+            }
             console.log("Database connection successfull.");
         }
         catch (err) {

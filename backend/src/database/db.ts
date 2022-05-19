@@ -3,7 +3,7 @@ import { DataSource } from "typeorm";
 
 
 // Platform _________________________________________________________
-export const platform_datasource = new DataSource({
+const platform_datasource = new DataSource({
   type: "mysql",
   host: "cacheflow-db-cluster-dev.cluster-c37w0dj5gpef.us-east-1.rds.amazonaws.com",
   port: 3306,
@@ -18,7 +18,7 @@ export const platform_datasource = new DataSource({
 })
 
 // Companies _________________________________________________________
-export const company_ddb_datasource = new DataSource({
+const company_ddb_datasource = new DataSource({
   type: "mysql",
   host: "cacheflow-db-cluster-dev.cluster-c37w0dj5gpef.us-east-1.rds.amazonaws.com",
   port: 3306,
@@ -31,3 +31,8 @@ export const company_ddb_datasource = new DataSource({
   migrations: [__dirname + '/company/daveys_delicious_bagels/migrations/*.{js,ts}'],
   subscribers: [__dirname + '/company/daveys_delicious_bagels/subscribers/*.{js,ts}']
 })
+
+export const dbs = {
+  platform_datasource,
+  company_ddb_datasource
+}

@@ -1,6 +1,6 @@
 import express from "express"
 import "reflect-metadata"
-import {platform_datasource, company_ddb_datasource} from "../database/db";
+import { dbs } from "../database/db";
 const port = 3000;
 import cors from "cors"
 import mainRouter from "./routes";
@@ -9,8 +9,10 @@ const app = express();
 
 (async function () {
   try {
-    await platform_datasource.initialize()
-    await company_ddb_datasource.initialize()
+    for (const i of Object.keys(dbs)) {
+      // @ts-ignore
+      await dbs[i].initialize()
+    }
 
     console.log("Database connection successfull.")
   } catch (err) {
