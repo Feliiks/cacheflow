@@ -17,3 +17,7 @@
 - `.env` file containing DB credentials inside `/database` is required to start
 
 ## TODO
+
+## API
+- `npm run dev` to start the API.
+- `npm run watch` to start watching the file changes and compile from typescript to javascript.

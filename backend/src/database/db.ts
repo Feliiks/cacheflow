@@ -1,3 +1,5 @@
+import * as dotenv from "dotenv";
+dotenv.config()
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 
@@ -5,11 +7,11 @@ import { DataSource } from "typeorm";
 // Platform _________________________________________________________
 const platform_datasource = new DataSource({
   type: "mysql",
-  host: "cacheflow-db-cluster-dev.cluster-c37w0dj5gpef.us-east-1.rds.amazonaws.com",
+  host: process.env.DB_HOST,
   port: 3306,
-  username: "clusteradmin",
-  password: "O0zf8.1a3AU.wWOWpE_wfp5TowtJ=Y",
-  database: "platform",
+  username: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME_PLATFORM,
   synchronize: true,
   logging: false,
   entities: [__dirname + '/platform/entity/*.{js,ts}'],
@@ -20,11 +22,11 @@ const platform_datasource = new DataSource({
 // Companies _________________________________________________________
 const company_ddb_datasource = new DataSource({
   type: "mysql",
-  host: "cacheflow-db-cluster-dev.cluster-c37w0dj5gpef.us-east-1.rds.amazonaws.com",
+  host: process.env.DB_HOST,
   port: 3306,
-  username: "clusteradmin",
-  password: "O0zf8.1a3AU.wWOWpE_wfp5TowtJ=Y",
-  database: "daveys_delicious_bagels",
+  username: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME_DDB,
   synchronize: true,
   logging: false,
   entities: [__dirname + '/company/daveys_delicious_bagels/entity/*.{js,ts}'],
