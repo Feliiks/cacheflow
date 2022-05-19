@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
+    "types": ["node"],
     "target": "es6",
     "module": "commonjs",
-    "outDir": "./dist",
+    "outDir": "dist",
     "noEmitOnError": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -15,5 +16,5 @@
     "resolveJsonModule": true,
     "emitDecoratorMetadata": true
   },
-  "include": ["./src/**/*.ts"]
+  "include": ["src/**/*.ts"]
 }

@@ -1,6 +1,6 @@
 import { Router } from "express"
 
-import { dbs } from "../../database/db";
+import { dbs } from "../../database";
 import { User } from "../../database/platform/entity/User";
 
 const mainRouter: Router = Router()

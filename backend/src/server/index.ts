@@ -1,6 +1,6 @@
 import express from "express"
 import "reflect-metadata"
-import { dbs } from "../database/db";
+import { dbs } from "../database";
 const port = 3000;
 import cors from "cors"
 import mainRouter from "./routes";
