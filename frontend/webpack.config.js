@@ -1,15 +1,21 @@
 const path = require('path')
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+
 
 module.exports = {
   mode: 'development',
+  devtool: 'source-map',
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html"
+    })
   ],
-  entry: path.resolve(__dirname, 'src', 'index.js'),
+  entry: path.resolve(__dirname, 'src', 'index.tsx'),
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
     static: path.resolve(__dirname, 'public'),
@@ -41,6 +47,16 @@ module.exports = {
           }],
       },
       {
+        test: /\.(tsx|ts)$/,
+        include: path.resolve(__dirname, 'src'),
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader'
+          }
+        ]
+      },
+      {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
@@ -58,14 +74,11 @@ module.exports = {
     ],
   },
   resolve: {
-    fallback: {
-      "fs": false,
-      "os": false,
-      "path": false
-    },
+    extensions: ['.js', '.jsx',  '.tsx', '.ts'],
     alias: {
       process: "process/browser"
     }
+
   },
   performance: {
     hints: false,

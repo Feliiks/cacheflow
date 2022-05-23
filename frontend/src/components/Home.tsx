@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
+// @ts-ignore
 import HeaderImage from "../../public/cacheFlowLogo.png";
 
 const Home = () => {
   const [companies, setCompanies] = useState("");
+  // @ts-ignore
   const { logOut, user } = useUserAuth();
   const navigate = useNavigate();
 

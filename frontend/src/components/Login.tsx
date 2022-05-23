@@ -4,6 +4,7 @@ import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import GoogleButton from "react-google-button";
 import { useUserAuth } from "../context/UserAuthContext";
+// @ts-ignore
 import HeaderImage from "../../public/cacheFlowLogo.png";
 
 
@@ -11,6 +12,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  // @ts-ignore
   const { logIn, googleSignIn } = useUserAuth();
   const navigate = useNavigate();
 
@@ -60,6 +62,7 @@ const Login = () => {
           </Form.Group>
 
           <div className="d-grid gap-2">
+            {/* @ts-ignore */}
             <Button variant="custom" type="Submit" className='custom-submit'>
               Log In
             </Button>

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useUserAuth } from "../context/UserAuthContext";
+// @ts-ignore
 import HeaderImage from "../../public/cacheFlowLogo.png";
 
 
@@ -10,6 +11,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
+  // @ts-ignore
   const { signUp } = useUserAuth();
   let navigate = useNavigate();
 
@@ -49,6 +51,7 @@ const Signup = () => {
           </Form.Group>
 
           <div className="d-grid gap-2">
+            {/* @ts-ignore */}
             <Button variant="custom" type="Submit" className='custom-submit'>
               Sign up
             </Button>
