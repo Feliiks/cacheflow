@@ -26,14 +26,9 @@ app.use(
   express.urlencoded({ limit: "500mb", extended: true, parameterLimit: 50000 })
 );
 app.use(express.json({ limit: "500mb" }));
-app.use(express.static("../../../../frontend/public"));
 
 app.use("/platform", mainRouter);
 
 module.exports = app.listen(port, () =>
   console.log(`listening on port ${port}!`)
 );
-
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../../../frontend/public/index.html"))
-})
