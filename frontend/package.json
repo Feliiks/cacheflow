@@ -6,7 +6,8 @@
 	"scripts": {
 		"dev": "webpack-dev-server --mode development",
 		"test": "mocha",
-		"react:dev": "webpack-dev-server --mode development"
+		"react:dev": "webpack-dev-server --mode development",
+		"watch": "npx tsc -w"
 	},
 	"resolutions": {
 		"react-error-overlay": "6.0.9"

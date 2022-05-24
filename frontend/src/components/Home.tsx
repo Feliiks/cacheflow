@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import * as React from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
@@ -6,7 +6,7 @@ import { useUserAuth } from "../context/UserAuthContext";
 import HeaderImage from "../../public/cacheFlowLogo.png";
 
 const Home = () => {
-  const [companies, setCompanies] = useState("");
+  const [companies, setCompanies] = React.useState("");
   // @ts-ignore
   const { logOut, user } = useUserAuth();
   const navigate = useNavigate();
@@ -15,12 +15,16 @@ const Home = () => {
     try {
       await logOut();
       navigate("/");
-    } catch (error) {
-      console.log(error.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        return {
+          message: `Things exploded (${err.message})`,
+        };
+      }
     }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     const url = `http://localhost:3000/platform/userCompaniesModels/${user.uid}`;
 
     const fetchData = async () => {
@@ -41,7 +45,7 @@ const Home = () => {
     <>
       <div className="p-4 box mt-3 text-center">
         <div className="image-container layrd">
-          <img src={HeaderImage} alt="logo" className="header-image"></img>
+          <img src={HeaderImage} alt="logo" className="header-image" />
         </div>
         Welcome <br />
         {user.email}

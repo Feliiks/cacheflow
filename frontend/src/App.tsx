@@ -1,3 +1,4 @@
+import * as React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -6,15 +7,12 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
-import React, { useEffect } from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
 const App = () => {
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.process = {
       ...window.process,
     };

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import * as React from "react";
+import { useState as useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
@@ -15,13 +16,13 @@ const Signup = () => {
   const { signUp } = useUserAuth();
   let navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     setError("");
     try {
       await signUp(email, password);
       navigate("/");
-    } catch (err) {
+    } catch (err: any) {
       setError(err.message);
     }
   };
@@ -30,7 +31,7 @@ const Signup = () => {
     <>
       <div className="p-4 box">
 	 	<div className='image-container layrd'>
-          <img src={HeaderImage} alt="logo" className="header-image"></img>
+          <img src={HeaderImage} alt="logo" className="header-image" />
         </div>
         {error && <Alert variant="danger">{error}</Alert>}
         <Form onSubmit={handleSubmit}>
@@ -51,8 +52,7 @@ const Signup = () => {
           </Form.Group>
 
           <div className="d-grid gap-2">
-            {/* @ts-ignore */}
-            <Button variant="custom" type="Submit" className='custom-submit'>
+            <Button variant="custom" type="submit" className='custom-submit'>
               Sign up
             </Button>
           </div>

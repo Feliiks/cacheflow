@@ -11,16 +11,16 @@ import {
 } from "firebase/auth";
 import { auth } from '../firebase'
 
-// @ts-ignore
-const userAuthContext = createContext();
 
-export function UserAuthContextProvider({ children }) {
-  const [user, setUser] = useState({});
+const userAuthContext = createContext({});
 
-  function logIn(email, password) {
+export const UserAuthContextProvider = ({ children }: any) => {
+  const [user, setUser] = useState<any | null>(null);
+
+  function logIn(email: string, password: string) {
     return signInWithEmailAndPassword(auth, email, password);
   }
-  function signUp(email, password) {
+  function signUp(email: string, password: string) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
   function logOut() {
@@ -34,7 +34,6 @@ export function UserAuthContextProvider({ children }) {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
       console.log("Auth", currentuser);
-      // @ts-ignore
       setUser(currentuser);
     });
 
