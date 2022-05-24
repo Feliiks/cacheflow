@@ -15,7 +15,7 @@ const app = express();
       await dbs[i].initialize()
     }
 
-    console.log("Database connection successfull.")
+    console.log("Database connection successfulll.")
   } catch (err) {
     console.log(err)
   }
