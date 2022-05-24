@@ -19,5 +19,9 @@
 ## TODO
 
 ## API
+- `npm run watch` to start typescript compilation in watch mode.
 - `npm run dev` to start the API.
-- `npm run watch` to start watching the file changes and compile from typescript to javascript.
+
+## React app
+- `npm run watch` to start typescript compilation in watch mode.
+- `npm run dev` to start the webpack dev server on port 9000.
